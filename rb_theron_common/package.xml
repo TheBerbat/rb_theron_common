@@ -9,16 +9,10 @@
 
   <license>BSD</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <exec_depend>rb_theron_control</exec_depend>
-
   <exec_depend>rb_theron_description</exec_depend>
-  <exec_depend>rb_theron_localization</exec_depend>
-  <exec_depend>rb_theron_navigation</exec_depend>
-  <exec_depend>rb_theron_pad</exec_depend>
-  <exec_depend>rb_theron_perception</exec_depend>
-  <exec_depend>rb_theron_robot_local_control</exec_depend>
 
-  <export><metapackage/></export>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 
 </package>
