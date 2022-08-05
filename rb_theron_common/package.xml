@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>rb_theron_common</name>
   <version>0.0.0</version>
   <description>The rb_theron_common package. It contains rb_theron common packages used for robot control and for simulation</description>
@@ -9,14 +10,14 @@
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>rb_theron_control</run_depend>
+  <exec_depend>rb_theron_control</exec_depend>
 
-  <run_depend>rb_theron_description</run_depend>
-  <run_depend>rb_theron_localization</run_depend>
-  <run_depend>rb_theron_navigation</run_depend>
-  <run_depend>rb_theron_pad</run_depend>
-  <run_depend>rb_theron_perception</run_depend>
-  <run_depend>rb_theron_robot_local_control</run_depend>
+  <exec_depend>rb_theron_description</exec_depend>
+  <exec_depend>rb_theron_localization</exec_depend>
+  <exec_depend>rb_theron_navigation</exec_depend>
+  <exec_depend>rb_theron_pad</exec_depend>
+  <exec_depend>rb_theron_perception</exec_depend>
+  <exec_depend>rb_theron_robot_local_control</exec_depend>
 
   <export><metapackage/></export>
 

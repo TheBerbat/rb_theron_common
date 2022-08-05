@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(rb_theron_common)
-find_package(catkin REQUIRED)
-catkin_metapackage()
+cmake_minimum_required(VERSION 3.5)
+project(rb_theron_common NONE)
+find_package(ament_cmake REQUIRED)
+ament_package()
