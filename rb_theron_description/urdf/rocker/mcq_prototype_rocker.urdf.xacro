@@ -120,23 +120,23 @@
 		<origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0"/>
 	</xacro:caster>
 
-    <!-- gazebo reference="${prefix}support">
-			<mu1 value="5.0"/>
-			<mu2 value="0.5"/>
-			<kp value="10000000.0" />
-			<kd value="1.0" />
-			<fdir1 value="1 0 0"/>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
-    
-     <gazebo reference="${prefix}_wheel">
-			<mu1 value="5.0"/>
-			<mu2 value="0.5"/>
-			<kp value="10000000.0" />
-			<kd value="1.0" />
-			<fdir1 value="1 0 0"/>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo --> 
+    <!-- gazebo reference="${prefix}support"-->
+			<!--mu1 value="5.0"/-->
+			<!--mu2 value="0.5"/-->
+			<!--kp value="10000000.0" /-->
+			<!--kd value="1.0" /-->
+			<!--fdir1 value="1 0 0"/-->
+      <!--turnGravityOff>false</turnGravityOff-->
+    <!--/gazebo-->
+
+     <!--gazebo reference="${prefix}_wheel"-->
+			<!--mu1 value="5.0"/-->
+			<!--mu2 value="0.5"/-->
+			<!--kp value="10000000.0" /-->
+			<!--kd value="1.0" /-->
+			<!--fdir1 value="1 0 0"/-->
+      <!--turnGravityOff>false</turnGravityOff-->
+    <!--/gazebo --> 
  </xacro:macro> 
 
 </robot>
