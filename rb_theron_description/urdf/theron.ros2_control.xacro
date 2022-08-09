@@ -33,8 +33,6 @@
         <!-- PARAMETERS -->
         <param name="can_id">1</param>
         <param name="gearbox_ratio">9.56</param>
-        <param name="home_offset">0.0</param>
-        <param name="spin">1</param>
         <param name="encoder_resolution">4000</param>
         <param name="digital_inputs">3</param>
         <param name="digital_outputs">3</param>
@@ -46,6 +44,23 @@
         <param name="max_rated_peak_current_drive">40.0</param>
         <!-- More motor parameters here -->
         <param name="log_level">${log_level}</param>
+
+        <!-- Others -->
+        <param name="calculate_vel_using_pose">true</param>
+        <param name="wheel_diameter">0.2</param>
+        <param name="gearbox_ratio">12.52</param>
+        <param name="has_encoder">true</param>
+        <param name="encoder_resolution">1000</param><!--UNKNOWN-->
+        <param name="spin">1</param>
+        <param name="home_offset">0.0</param>
+        <param name="home_required">false</param>
+        <param name="home_method">2</param>
+        <param name="home_at_startup">false</param>
+        <param name="low_position_limit">-999999999</param>
+        <param name="high_position_limit">999999999</param>
+        <param name="potentiometer_analog_input">0.0</param>
+        <param name="potentiometer_voltage_calibration">0.0</param>
+
       </joint>
       
       <joint name="${prefix}right_wheel_joint">
@@ -75,6 +90,23 @@
         <param name="max_rated_peak_current_drive">40.0</param>
         <!-- More motor parameters here -->
         <param name="log_level">${log_level}</param>
+
+        <!-- Others -->
+        <param name="calculate_vel_using_pose">true</param>
+        <param name="wheel_diameter">0.2</param>
+        <param name="gearbox_ratio">12.52</param>
+        <param name="has_encoder">true</param>
+        <param name="encoder_resolution">1000</param><!--UNKNOWN-->
+        <param name="spin">1</param>
+        <param name="home_offset">0.0</param>
+        <param name="home_required">false</param>
+        <param name="home_method">2</param>
+        <param name="home_at_startup">false</param>
+        <param name="low_position_limit">-999999999</param>
+        <param name="high_position_limit">999999999</param>
+        <param name="potentiometer_analog_input">0.0</param>
+        <param name="potentiometer_voltage_calibration">0.0</param>
+
       </joint>
     </ros2_control>
 
