@@ -31,7 +31,7 @@
         <state_interface name="effort"/>
 
         <!-- PARAMETERS -->
-        <param name="can_id">1</param>
+        <param name="can_id">2</param>
         <param name="gearbox_ratio">9.56</param>
         <param name="encoder_resolution">4000</param>
         <param name="digital_inputs">5</param>
@@ -75,7 +75,7 @@
         <state_interface name="effort"/>
 
         <!-- PARAMETERS -->
-        <param name="can_id">2</param>
+        <param name="can_id">1</param>
         <param name="gearbox_ratio">9.56</param>
         <param name="home_offset">0.0</param>
         <param name="spin">1</param>
