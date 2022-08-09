@@ -62,52 +62,6 @@
         <param name="potentiometer_voltage_calibration">0.0</param>
 
       </joint>
-      
-      <joint name="${prefix}right_wheel_joint">
-        <param name="type">robotnik_motor_plugins::MotorA</param>
-
-        <command_interface name="velocity"> 
-          <param name="min">-1</param>
-          <param name="max">1</param>
-        </command_interface>
-        <state_interface name="position"/>
-        <state_interface name="velocity"/>
-        <state_interface name="effort"/>
-
-        <!-- PARAMETERS -->
-        <param name="can_id">1</param>
-        <param name="gearbox_ratio">9.56</param>
-        <param name="home_offset">0.0</param>
-        <param name="spin">1</param>
-        <param name="encoder_resolution">4000</param>
-        <param name="digital_inputs">5</param>
-        <param name="digital_outputs">3</param>
-        <param name="analog_inputs">1</param>
-        <param name="analog_outputs">0</param>
-
-        <param name="diameter_wheel">0.1524</param>
-        <param name="motors_encoder">true</param>
-        <param name="max_rated_peak_current_drive">40.0</param>
-        <!-- More motor parameters here -->
-        <param name="log_level">${log_level}</param>
-
-        <!-- Others -->
-        <param name="calculate_vel_using_pose">true</param>
-        <param name="wheel_diameter">0.2</param>
-        <param name="gearbox_ratio">12.52</param>
-        <param name="has_encoder">true</param>
-        <param name="encoder_resolution">1000</param><!--UNKNOWN-->
-        <param name="spin">1</param>
-        <param name="home_offset">0.0</param>
-        <param name="home_required">false</param>
-        <param name="home_method">2</param>
-        <param name="home_at_startup">false</param>
-        <param name="low_position_limit">-999999999</param>
-        <param name="high_position_limit">999999999</param>
-        <param name="potentiometer_analog_input">0.0</param>
-        <param name="potentiometer_voltage_calibration">0.0</param>
-
-      </joint>
     </ros2_control>
 
   </xacro:macro>
