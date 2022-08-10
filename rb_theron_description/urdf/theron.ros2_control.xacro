@@ -4,7 +4,7 @@
   <xacro:macro name="example_ros2_control" params="
     name
     prefix
-    log_level:=debug">
+    log_level:=info">
 
     <ros2_control name="${name}" type="system">
       <hardware>
