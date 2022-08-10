@@ -51,7 +51,7 @@
         <param name="gearbox_ratio">12.52</param>
         <param name="has_encoder">true</param>
         <param name="encoder_resolution">1000</param><!--UNKNOWN-->
-        <param name="spin">1</param>
+        <param name="spin">-1</param>
         <param name="home_offset">0.0</param>
         <param name="home_required">false</param>
         <param name="home_method">2</param>
