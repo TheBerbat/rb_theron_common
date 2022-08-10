@@ -44,7 +44,7 @@
         <param name="log_level">${log_level}</param>
 
         <!-- Others -->
-        <param name="calculate_vel_using_pose">false</param>
+        <param name="calculate_vel_using_pose">true</param>
         <param name="wheel_diameter">0.1524</param>
         <param name="gearbox_ratio">12.52</param>
         <param name="has_encoder">true</param>
