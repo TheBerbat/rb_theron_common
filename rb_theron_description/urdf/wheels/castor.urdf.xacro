@@ -26,7 +26,7 @@
   <xacro:macro name="caster" params="prefix parent *origin hq">
 
   <!--CASTER SUPPORT -->
-  <joint name="${prefix}joint_support" type="continuous">
+  <joint name="${prefix}joint_support" type="fixed">
       <parent link="${parent}"/>
       <child link="${prefix}support"/>
       <xacro:insert_block name="origin" />
@@ -65,7 +65,7 @@
  </xacro:macro>
 
  <xacro:macro name="caster_wheel" params="prefix parent *origin hq">
-     <joint name="${prefix}joint_wheel" type="continuous">
+     <joint name="${prefix}joint_wheel" type="fixed">
        <parent link="${parent}"/>
        <child link="${prefix}wheel"/>
        <xacro:insert_block name="origin" />
