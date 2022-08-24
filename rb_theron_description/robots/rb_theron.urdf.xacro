@@ -19,13 +19,13 @@
 	<!--xacro:include filename="$(find rb_theron_description)/urdf/wheels/castor.urdf.xacro" /-->
 
 	<!-- Import all available sensors -->
-	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
+	<!--xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" /-->
 
 	<!-- Import Gazebo Stuff -->
 	<!--xacro:include filename="$(find rb_theron_description)/urdf/common.gazebo.xacro" /-->
 
 	<!-- Import differential base elements -->
-	<xacro:include filename="$(find rb_theron_description)/urdf/theron.ros2_control.xacro" />
+	<!--xacro:include filename="$(find rb_theron_description)/urdf/theron.ros2_control.xacro" /-->
 
 
 	<!-- ***************** -->
@@ -52,7 +52,7 @@
 	<!-- base with wheels -->
 	<xacro:rb_theron_base prefix="$(arg prefix)" hq="${hq}" />
 
-	<xacro:example_ros2_control name="robotnik_demo_name" prefix="$(arg prefix)" />
+	<!--xacro:example_ros2_control name="robotnik_demo_name" prefix="$(arg prefix)" log_level="info" /-->
 
 	<!-- Gazebo ros control pluggins -->
 	<!--xacro:ros_control/-->
@@ -64,9 +64,9 @@
 	<!--xacro:sensor_orbbec_astra prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera"-->
 		<!--origin xyz="0.3305 0.0 0.1898" rpy="0 0 0"/-->
 	<!--/xacro:sensor_orbbec_astra-->
-	<xacro:sensor_hokuyo_ust10lx prefix="$(arg prefix)front_lidar" parent="$(arg prefix)base_link" prefix_topic="front_laser">
-		<origin xyz="0.3305 0.0 0.1898" rpy="${PI} 0 0"/>
-	</xacro:sensor_hokuyo_ust10lx>
+	<!--xacro:sensor_hokuyo_ust10lx prefix="$(arg prefix)front_lidar" parent="$(arg prefix)base_link" prefix_topic="front_laser"-->
+		<!--origin xyz="0.3305 0.0 0.1898" rpy="${PI} 0 0"/-->
+	<!--/xacro:sensor_hokuyo_ust10lx-->
 
 	<!--xacro:sensor_imu_hector prefix="$(arg prefix)imu" parent="$(arg prefix)base_link"-->
 		<!--origin xyz="-0.1975 0.0 0.1598" rpy="0 0 0"/-->

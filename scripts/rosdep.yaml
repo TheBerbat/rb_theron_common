@@ -1,0 +1,23 @@
+robotnik_base_hw:
+  ubuntu: [ros-foxy-robotnik-base-hw]
+
+robotnik_msgs:
+  ubuntu: [ros-foxy-robotnik-msgs]
+
+robotnik_sensors:
+  ubuntu: [ros-foxy-robotnik-sensors]
+
+robotnik_bus_plugins:
+  ubuntu: [ros-foxy-robotnik-bus-plugins]
+  
+robotnik_motor_plugins:
+  ubuntu: [ros-foxy-robotnik-motor-plugins]
+  
+robotnik_controllers:
+  ubuntu: [ros-foxy-robotnik-controllers]
+
+rb_theron_description:
+  ubuntu: [ros-foxy-rb-theron-description]
+
+rb_theron_common:
+  ubuntu: [ros-foxy-rb-theron-common]
