@@ -56,6 +56,19 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /debs
 
+
+RUN apt-get update \
+  && apt-get install -q -y \
+  --no-install-recommends \
+	  ros-foxy-rmw-cyclonedds-cpp \
+  && apt-get clean -q -y \
+  && apt-get autoremove -q -y \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /debs
+
+ENV RMW_IMPLEMENTATION rmw_cyclonedds_cpp
+ENV RCUTILS_COLORIZED_OUTPUT 1
+
 COPY ./scripts/startup.sh /startup.sh
 RUN sed -i 's#exec#. /startup.sh \nexec#' /ros_entrypoint.sh
 
