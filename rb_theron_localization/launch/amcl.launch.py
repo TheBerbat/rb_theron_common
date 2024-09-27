@@ -25,8 +25,6 @@
 
 from ament_index_python.packages import get_package_share_directory
 
-from os.path import join
-
 from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
@@ -38,6 +36,7 @@ from robotnik_common.launch import AddArgumentParser
 
 
 def generate_launch_description():
+
     ld = LaunchDescription()
     add_to_launcher = AddArgumentParser(ld)
 
@@ -68,38 +67,102 @@ def generate_launch_description():
     )
     add_to_launcher.add_arg(arg)
 
-    def_slam_param_desc = "Full path to the ROS2 parameters file to use "
-    def_slam_param_desc += "for the slam_toolbox node"
-    def_slam_param_file = join(
-        get_package_share_directory("rb_theron_localization"),
-        "config",
-        "slam_params.yaml"
-    )
+    default_map_name = 'opil_factory'
     arg = ExtendedArgument(
-        name='slam_params_file',
-        description=def_slam_param_desc,
-        default_value=def_slam_param_file,
+        name='map_name',
+        description='Name of the map file',
+        default_value=default_map_name,
         use_env=True,
-        environment='SLAM_PARAMS_FILE',
+        environment='MAP_NAME',
     )
     add_to_launcher.add_arg(arg)
 
+    def_amcl_file = [
+        get_package_share_directory('rb_theron_localization'),
+        '/config/amcl.yaml'
+    ]
+
+    arg = ExtendedArgument(
+        name='amcl_file',
+        description='Absolute path to the amcl file',
+        default_value=def_amcl_file,
+        use_env=True,
+        environment='AMCL_FILE',
+    )
+    add_to_launcher.add_arg(arg)
+
+    arg = ExtendedArgument(
+        name='map_frame_id',
+        description='Frame id of the map',
+        default_value='map',
+        use_env=True,
+        environment='MAP_FRAME_ID',
+    )
+    add_to_launcher.add_arg(arg)
+
+    arg = ExtendedArgument(
+        name='scan_topic',
+        description='2D laser scan topic to use',
+        default_value='mergered_laser/scan',
+        use_env=True,
+        environment='SCAN_TOPIC',
+    )
+    add_to_launcher.add_arg(arg)
     params = add_to_launcher.process_arg()
 
-    config_file = RewrittenYaml(
-        source_file=params['slam_params_file'],
+    lifecycle_nodes = ['amcl']
+
+    amcl_rewritten = RewrittenYaml(
+        source_file=params['amcl_file'],
         param_rewrites={
             'use_sim_time': params['use_sim_time'],
-            'odom_frame': [params['robot_id'], '/odom'],
-            'base_frame': [params['robot_id'], '/base_footprint'],
-            'map_frame': 'map',
-            'scan_topic': [params['robot_id'], '/laser/scan']
+            'base_frame_id': [params['robot_id'], '/base_footprint'],
+            'global_frame_id': [
+                params['robot_id'],
+                '/',
+                params['map_frame_id']
+            ],
+            'odom_frame_id': [params['robot_id'], '/odom'],
+            'scan_topic': params['scan_topic'],
         },
-        # root_key=[
-        #     params['namespace']
-        # ],
-        # root_key=[''],
+        root_key=[params['namespace']],
         convert_types=True,
+    )
+    print(amcl_rewritten)
+
+    amcl_node = Node(
+        package='nav2_amcl',
+        executable='amcl',
+        name='amcl',
+        parameters=[
+            {
+                'use_sim_time': params['use_sim_time']
+            },
+            amcl_rewritten
+        ],
+        remappings=[
+            (
+                'map',
+                [
+                    params['map_frame_id']
+                ],
+            ),
+        ],
+        output='screen',
+    )
+
+    lifecycle_manager = Node(
+        package='nav2_lifecycle_manager',
+        executable='lifecycle_manager',
+        name='lifecycle_manager_localization',
+        output='screen',
+        parameters=[
+            {
+                'use_sim_time': params['use_sim_time'],
+                'autostart': True,
+                'node_names': lifecycle_nodes
+            }
+        ]
     )
 
     ld.add_action(
@@ -107,15 +170,7 @@ def generate_launch_description():
             namespace=params['namespace']
         )
     )
-
-    ld.add_action(
-        Node(
-            package='slam_toolbox',
-            executable='async_slam_toolbox_node',
-            name='slam_toolbox',
-            output='screen',
-            parameters=[config_file],
-        )
-    )
+    ld.add_action(amcl_node)
+    ld.add_action(lifecycle_manager)
 
     return ld
